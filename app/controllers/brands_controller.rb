@@ -24,8 +24,11 @@ class BrandsController < ApplicationController
     @brand = Brand.new(brand_params)
 
     if @brand.save
-      redirect_to @brand, notice: 'Brand was successfully created.'
+      flash[:notice] = 'Brand was successfully created.'
+      redirect_to @brand
     else
+      errors = @brand.errors.any? ? @brand.errors.full_messages : 'Something went wrong.'
+      flash[:error] = errors
       render :new
     end
   end
