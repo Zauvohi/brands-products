@@ -1,9 +1,13 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @brand.name %>
-</p>
-
+<div class="row">
+  <h3>Brand #<%= @brand.id %></h3>
+</div>
+<div class="row">
+  <p>
+    <strong>Name:</strong>
+    <%= @brand.name %>
+  </p>
+</div>
+<div class="row">
 <%= link_to 'Edit', edit_brand_path(@brand) %> |
 <%= link_to 'Back', brands_path %>
+</div>
