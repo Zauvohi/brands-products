@@ -1,24 +1,24 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @product.name %>
-</p>
-
-<p>
-  <strong>Brand:</strong>
-  <%= @product.brand %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @product.description %>
-</p>
-
-<p>
-  <strong>Price:</strong>
-  <%= @product.price %>
-</p>
-
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>
+<h2>Product Information</h2>
+<div class="row">
+  <div class="col-sm-12">
+    <h4>
+      Product No.<%= @product.id %> - <%= @product.name %> (<%= @product.brand.name %>)
+      <small><%= link_to 'Edit', edit_product_path(@product) %></small>
+    </h4>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-5">
+    <h4>Price: $<%= @product.price %></h4>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-10">
+    <h4>Description</h4>
+    <p>
+      <%= @product.description %>
+    </p>
+  </div>
+</div>
+<br>
+<%= button_to 'Back', products_path, class: 'btn btn-default' %>
