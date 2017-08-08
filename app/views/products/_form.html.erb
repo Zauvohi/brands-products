@@ -30,7 +30,8 @@
 
   <div class="actions">
     <div class="col-sm-3">
-      <%= f.submit 'Add Product', class: 'btn btn-primary' %>
+      <% action = action_name == 'edit' ? 'Edit' : 'Add' %>
+      <%= f.submit "#{action} Product", class: 'btn btn-primary' %>
     </div>
   </div>
   <% end %>
