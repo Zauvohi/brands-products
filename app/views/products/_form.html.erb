@@ -18,7 +18,11 @@
 
   <div class="field">
     <%= f.label :brand_id %>
-    <%= f.text_field :brand_id %>
+    <%= f.select :brand_id do %>
+      <% get_brands.each do |brand| %>
+        <%= content_tag(:option, brand.name, value: brand.id) %>
+      <% end %>
+    <% end %>
   </div>
 
   <div class="field">
