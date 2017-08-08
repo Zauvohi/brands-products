@@ -9,4 +9,8 @@ module ApplicationHelper
   def bootstrap_class_for(flash_type)
     BOOTSTRAP_FLASH_CLASSES.fetch(flash_type.to_sym, flash_type.to_s)
   end
+
+  def action_for_button(action)
+    action == 'edit' ? 'Edit' : 'Add'
+  end
 end

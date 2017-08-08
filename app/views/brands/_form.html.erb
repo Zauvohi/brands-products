@@ -8,7 +8,8 @@
 
   <div class="from-group">
     <div class="col-sm-3">
-      <%= f.submit 'Add Brand', class: 'btn btn-primary'%>
+      <% action = action_for_button(action_name) %>
+      <%= f.submit "#{action} Brand", class: 'btn btn-primary'%>
     </div>
   </div>
 <% end %>
