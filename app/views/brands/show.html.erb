@@ -1,13 +1,11 @@
+<h2>Brand Information</h2>
 <div class="row">
-  <h3>Brand #<%= @brand.id %></h3>
+  <div class="col-sm-5">
+    <h3>
+      Brand No. <%= @brand.id %>: <%= @brand.name %>
+      <small><%= link_to 'Edit', edit_brand_path(@brand) %></small>
+    </h3>
+  </div>
 </div>
-<div class="row">
-  <p>
-    <strong>Name:</strong>
-    <%= @brand.name %>
-  </p>
-</div>
-<div class="row">
-<%= link_to 'Edit', edit_brand_path(@brand) %> |
-<%= link_to 'Back', brands_path %>
-</div>
+<br>
+<%= button_to 'Back', brands_path, method: :get, class: 'btn btn-default' %>
