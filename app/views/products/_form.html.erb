@@ -1,29 +1,35 @@
-<%= form_for(product) do |f| %>
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
+<%= form_for(product, html: { class: 'form-horizontal' }) do |f| %>
+  <div class="form-group">
+    <%= f.label :name, class: 'col-sm-1 control-label' %>
+    <div class="col-sm-5">
+      <%= f.text_field :name, class: 'form-control' %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :brand_id %>
-    <%= f.select :brand_id do %>
-      <% get_brands.each do |brand| %>
-        <%= content_tag(:option, brand.name, value: brand.id) %>
-      <% end %>
-    <% end %>
+  <div class="form-group">
+    <%= f.label :brand_id, class: 'col-sm-1 control-label' %>
+    <div class="col-sm-5">
+      <%= f.collection_select(:brand_id, get_brands, :id, :name, {}, { class: 'form-control'}) %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :description %>
-    <%= f.text_area :description %>
+  <div class="form-group">
+    <%= f.label :description, class: 'col-sm-1 control-label' %>
+    <div class="col-sm-5">
+      <%= f.text_area :description, class: 'form-control' %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :price %>
-    <%= f.text_field :price %>
+  <div class="form-group">
+    <%= f.label :price, class: 'col-sm-1 control-label' %>
+    <div class="col-sm-5">
+      <%= f.text_field :price, { class: 'form-control', type: 'number' } %>
+    </div>
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <div class="col-sm-3">
+      <%= f.submit 'Add Product', class: 'btn btn-primary' %>
+    </div>
   </div>
 <% end %>
