@@ -24,8 +24,10 @@ class ProductsController < ApplicationController
     @product = Product.new(product_params)
 
     if @product.save
-      redirect_to @product, notice: 'Product was successfully created.'
+      flash[:notice] = 'Product was successfully created.'
+      redirect_to @product
     else
+      flash[:error] = get_error_messages_from(@product)
       render :new
     end
   end
@@ -33,8 +35,10 @@ class ProductsController < ApplicationController
   # PATCH/PUT /products/1
   def update
     if @product.update(product_params)
-      redirect_to @product, notice: 'Product was successfully updated.'
+      flash[:notice] = 'Product was successfully updated.'
+      redirect_to @product
     else
+      flash[:error] = get_error_messages_from(@product)
       render :edit
     end
   end
