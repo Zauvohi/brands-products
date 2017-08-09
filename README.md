@@ -1,24 +1,24 @@
-# README
+### Demo App for Michelada.io
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+**About this app:**
 
-Things you may want to cover:
+This app has 2 entities, Brand and Product. A brand can belong to many products and a product has a brand. Below are the requirements.
 
-* Ruby version
+### Brands
 
-* System dependencies
+* User can create a brand. Brands only have a name. Show an error if the user hasn't written a name.
+* User can view a list with all the existing brands.
+* User can delete a brand. Show an alert asking if the user is sure about doing it.
 
-* Configuration
+### Products
 
-* Database creation
+* User can create a product. Products have: name, brand (select one from the ones already created), description and price.
+* Show an error if the product has no name or if the price is greater than 100.
+* User can view a list of all existing products. Show the total of the sum of all the products
+* User can edit a product.
+* User can delete a product.
 
-* Database initialization
+### Extra Points
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* User [Bootstrap](getbootstrap.com/) to make the proyect looks nice.
+* Create some tests for your code.

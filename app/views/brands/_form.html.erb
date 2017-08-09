@@ -1,14 +1,17 @@
-<%= form_for(brand, html: { class: 'form-horizontal' }) do |f| %>
+<div class="row">
+  <%= form_for(brand, html: { class: 'form-horizontal' }) do |f| %>
   <div class="form-group">
     <%= f.label :name, class: 'col-sm-1 control-label' %>
     <div class="col-sm-5">
-      <%= f.text_field :name, class: 'form-control' %>
+      <%= f.text_field :name, { class: 'form-control', required: true } %>
     </div>
   </div>
 
   <div class="from-group">
     <div class="col-sm-3">
-      <%= f.submit 'Add Brand', class: 'btn btn-primary'%>
+      <% action = action_for_button(action_name) %>
+      <%= f.submit "#{action} Brand", class: 'btn btn-primary'%>
     </div>
   </div>
-<% end %>
+  <% end %>
+</div>
