@@ -16,7 +16,6 @@ RSpec.describe ProductsController, type: :controller do
 
   let(:product) { Product.create! valid_attributes }
 
-
   describe "GET #index" do
     it "returns a success response" do
       get :index
@@ -40,7 +39,6 @@ RSpec.describe ProductsController, type: :controller do
 
 
     it "returns a success response" do
-      #product = Product.create! valid_attributes
       get :show, params: { id: product.to_param }
       expect(response).to be_success
     end
@@ -65,7 +63,6 @@ RSpec.describe ProductsController, type: :controller do
 
   describe "GET #edit" do
     it "returns a success response" do
-      #product = Product.create! valid_attributes
       get :edit, params: { id: product.to_param }
       expect(response).to be_success
     end
@@ -91,7 +88,7 @@ RSpec.describe ProductsController, type: :controller do
     end
 
     context "with invalid params" do
-      it "returns a success response (i.e. to display the 'new' template)" do
+      it "returns a success response" do
         post :create, params: { product: invalid_attributes }
         expect(response).to be_success
       end
@@ -105,22 +102,19 @@ RSpec.describe ProductsController, type: :controller do
       }
 
       it "updates the requested product" do
-        product = Product.create! valid_attributes
         put :update, params: { id: product.to_param, product: new_attributes }
         product.reload
         expect(product.price).to eq(new_attributes[:price])
       end
 
       it "redirects to the product" do
-        product = Product.create! valid_attributes
         put :update, params: { id: product.to_param, product: valid_attributes }
         expect(response).to redirect_to(product)
       end
     end
 
     context "with invalid params" do
-      it "returns a success response (i.e. to display the 'edit' template)" do
-        product = Product.create! valid_attributes
+      it "returns a success " do
         put :update, params: { id: product.to_param, product: invalid_attributes }
         expect(response).to be_success
       end
