@@ -3,14 +3,18 @@
   <div class="form-group">
     <%= f.label :name, class: 'col-sm-1 control-label' %>
     <div class="col-sm-5">
-      <%= f.text_field :name, class: 'form-control' %>
+      <%= f.text_field :name, { class: 'form-control', required: true } %>
     </div>
   </div>
 
   <div class="form-group">
     <%= f.label :brand_id, class: 'col-sm-1 control-label' %>
     <div class="col-sm-5">
-      <%= f.collection_select(:brand_id, get_brands, :id, :name, {}, { class: 'form-control'}) %>
+      <%= f.collection_select(
+          :brand_id, get_brands, :id, :name,
+          {}, { class: 'form-control', required: true }
+        )
+      %>
     </div>
   </div>
 
@@ -24,7 +28,9 @@
   <div class="form-group">
     <%= f.label :price, class: 'col-sm-1 control-label' %>
     <div class="col-sm-5">
-      <%= f.text_field :price, { class: 'form-control', type: 'number' } %>
+      <%= f.text_field :price,
+        { class: 'form-control', type: 'number', required: true, max: 100 }
+      %>
     </div>
   </div>
 
